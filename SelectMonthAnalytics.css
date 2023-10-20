@@ -1,0 +1,117 @@
+body{
+  display: flex;
+  justify-content: center;
+}
+
+#offcanvasExample{
+  width: 100%;
+}
+.offcanvas-content{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.offcanvas-header{
+  background-color: #0077b6;
+  /* height: 40px; */
+  width: 250px;
+}
+
+.offcanvas-title{
+  color: #90e0ef;
+}
+
+
+.offcanvas-body{
+  background-color: #0077b6;
+  width: 250px;
+}
+
+.offcanvas-main-body{
+  height: 100%;
+  width: 100%;
+  background-color: #90e0ef;
+}
+
+.btn-close
+{
+  background-color: #90e0ef;
+} 
+
+#offcanvasTop{
+  margin-left: 400px;
+  height: 100%;
+}
+
+#MonthlyAnalyticsPage{
+  display: none;
+  width: 1256px;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: #caf0f8;
+  justify-content: space-evenly;
+}
+.SelectMonthPanel{
+  background-color: #0077b6;
+  width: 300px;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  padding-top: 40px;
+}
+
+#MonthsAnalyticsHolder{
+  /* background-color: #caf0f8; */
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 270px;
+  right: 0px;
+
+}
+
+.MonthAnalyticsBtn{
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  color: #90e0ef;
+  margin-bottom: 10px;
+  font-weight: 500;
+
+}
+
+.MonthAnalyticsBtn:hover{
+  color: #caf0f8;
+}
+
+.AnalyticsHeading{
+  font-weight: 500;
+  color: #0077b6;
+  font-size: 30px;
+  position: relative;
+  top: 10px;
+  
+}
+
+
+
+#TotalSpentLabel, #TotalSpentText, #UnitsReceivedLabel, #UnitsReceivedText{
+  display: inline;
+  font-weight: 500;
+  color: #0077b6;
+}
+
+
+
+
+
+
+.CloseSelectMonthAnalyticsModalBtn{
+  background-color: #0077b6;
+}
+

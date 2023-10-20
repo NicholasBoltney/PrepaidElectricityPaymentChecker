@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="HomeUI.css">
+    <link rel="stylesheet" href="SelectMonthAnalytics.css">
+    <link rel="stylesheet" href="MonthModal.css">
+
+  </head>
+  <body>
+    <div id="Title">
+      <h1 id="TitleText">ELECTRICITY</h1>
+      <!-- <p id="TitleText">Thea baby is beautiful</p> -->
+    </div>
+    
+    <div id="HomeUIHolder">
+      <div class="HomeUI">
+        <button id="ShowSelectMonthForAnalyticsModalBtn" class="HomeUIBtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">View monthly analytics</button>
+        <button id="AddNewDateBtn" class="HomeUIBtn" onclick="AddNewDateModal(id)">Add new date</button>
+      </div>
+
+
+      <div id="SVGHolder">
+        <!-- <img src="SVG/money-check-pen-svgrepo-com.svg" class="MoneySVG"/> -->
+        <img src="SVG/20.10.2023_16.20.08_REC(1).png" class="MoneySVG"/>
+
+      </div>
+    </div>
+
+
+
+    <div id="MonthModalView" class="MonthModal">
+      <div id="MonthModalViewInputsHolder">
+        <form>
+          <input type="text" id="DateInput" placeholder="Date" class="MonthInput">
+          <input type="text" id="MonthInput" placeholder="Month" class="MonthInput">
+          <input type="text" id="YearInput" placeholder="Year" class="MonthInput">
+          <input type="checkbox" id="CheckBoxForAmountPurchased" onclick="DisplayAmountsPurchasedInput()">
+          <input type="text" id="AmountPurchasedInput" class="AmountPurchased" placeholder="AmountPurchased">
+          <input type="text" id="UnitsGainedInput" placeholder="UnitsGained" class="MonthInput">
+          <input type="text" id="TotalUnitsInput" placeholder="TotalUnits" class="MonthInput">
+          <input type="submit" id="SubmitInfoToMonth" class="SubmitInfoToMonth" onclick="SubmitInfoToMonthArr()">
+          <button id="CloseButton" onclick="AddNewDateModal(id)" class="MonthInput">Close</button>
+        </form>
+      </div>
+    </div>
+    
+
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-content">
+        <div>
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Select a month</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div> 
+          <div class="offcanvas-body">
+            <div class="offcanvas-body">
+              <a id="Oct2023" class="MonthAnalyticsBtn" onclick="SelectedMonthTotalPay(id)">October 2023</a>
+              <a id="Nov2023" class="MonthAnalyticsBtn" onclick="SelectedMonthTotalPay(id)">November 2023</a>
+              <a id="Dec2023" class="MonthAnalyticsBtn" onclick="SelectedMonthTotalPay(id)">December 2023</a>
+              <a id="Jan2024" class="MonthAnalyticsBtn" onclick="SelectedMonthTotalPay(id)">January 2024</a>
+              <a id="Feb2024" class="MonthAnalyticsBtn" onclick="SelectedMonthTotalPay(id)">February 2024</a>
+              <a id="Mar2024" class="MonthAnalyticsBtn" onclick="SelectedMonthTotalPay(id)">March 2024</a>
+              <a id="Apr2024" class="MonthAnalyticsBtn" onclick="SelectedMonthTotalPay(id)">April 2024</a>
+              <a id="May2024" class="MonthAnalyticsBtn" onclick="SelectedMonthTotalPay(id)">May 2024</a>
+              <a id="Jun2024" class="MonthAnalyticsBtn" onclick="SelectedMonthTotalPay(id)">June 2024</a>
+              <a id="Jul2024" class="MonthAnalyticsBtn" onclick="SelectedMonthTotalPay(id)">July 2024</a>
+              <a id="Aug2024" class="MonthAnalyticsBtn" onclick="SelectedMonthTotalPay(id)">August 2024</a>
+              <a id="Sep2024" class="MonthAnalyticsBtn" onclick="SelectedMonthTotalPay(id)">September 2024</a>
+              <a id="Oct2024" class="MonthAnalyticsBtn" onclick="SelectedMonthTotalPay(id)">October 2024</a>
+              <a id="Nov2024" class="MonthAnalyticsBtn" onclick="SelectedMonthTotalPay(id)">November 2024</a>
+              <a id="Dec2024" class="MonthAnalyticsBtn" onclick="SelectedMonthTotalPay(id)">December 2024</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="offcanvas-main-body">
+          <div id="MonthsAnalyticsHolder">
+            <div id="MonthRecap">
+              <p class="AnalyticsHeading">
+                Month's details
+              </p>
+              <div id="TotalSpentTextHolder">
+                <p id="TotalSpentLabel">Total spent:</p>
+                <p id="TotalSpentText"></p>
+              </div>
+      
+              <div id="UnitsReceivedTextHolder">
+                <p id="UnitsReceivedLabel" >Units received:</p>
+                <p id="UnitsReceivedText"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+    <script src="AddingEventsToDate.js"></script>
+    <script src="HomeUI.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
