@@ -18,8 +18,16 @@
     
     <div id="HomeUIHolder">
       <div class="HomeUI">
+        <button id="AddNewDateBtn" class="HomeUIBtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add new date</button>
         <button id="ShowSelectMonthForAnalyticsModalBtn" class="HomeUIBtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">View monthly analytics</button>
-        <button id="AddNewDateBtn" class="HomeUIBtn" onclick="AddNewDateModal(id)">Add new date</button>
+        <button id="Oct2023" onclick="ShowDates(id)">ShowDates</button>
+
+
+        <div>
+          <ul id="listOfDates">
+
+          </ul>
+        </div>
       </div>
 
 
@@ -29,36 +37,18 @@
 
       </div>
     </div>
-
-
-
-    <div id="MonthModalView" class="MonthModal">
-      <div id="MonthModalViewInputsHolder">
-        <form>
-          <input type="text" id="DateInput" placeholder="Date" class="MonthInput">
-          <input type="text" id="MonthInput" placeholder="Month" class="MonthInput">
-          <input type="text" id="YearInput" placeholder="Year" class="MonthInput">
-          <input type="checkbox" id="CheckBoxForAmountPurchased" onclick="DisplayAmountsPurchasedInput()">
-          <input type="text" id="AmountPurchasedInput" class="AmountPurchased" placeholder="AmountPurchased">
-          <input type="text" id="UnitsGainedInput" placeholder="UnitsGained" class="MonthInput">
-          <input type="text" id="TotalUnitsInput" placeholder="TotalUnits" class="MonthInput">
-          <input type="submit" id="SubmitInfoToMonth" class="SubmitInfoToMonth" onclick="SubmitInfoToMonthArr()">
-          <button id="CloseButton" onclick="AddNewDateModal(id)" class="MonthInput">Close</button>
-        </form>
-      </div>
-    </div>
     
 
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
       <div class="offcanvas-content">
         <div>
-          <div class="offcanvas-header">
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <div class="offcanvas-header" id="leftHeader">
+            <button type="button" id="leftBtnClose" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             <h5 class="offcanvas-title" id="offcanvasExampleLabel">Select a month</h5>
           </div> 
           <div class="offcanvas-bodyHolder">
-            <div class="offcanvas-body">
+            <div class="offcanvas-body" id="leftBody">
               <a id="Oct2023" class="MonthAnalyticsBtn" onclick="SelectedMonthTotalPay(id)">October 2023</a>
               <a id="Nov2023" class="MonthAnalyticsBtn" onclick="SelectedMonthTotalPay(id)">November 2023</a>
               <a id="Dec2023" class="MonthAnalyticsBtn" onclick="SelectedMonthTotalPay(id)">December 2023</a>
@@ -97,7 +87,27 @@
           </div>
         </div>
       </div>
+    </div>
 
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Add Day</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div id="MonthModalViewInputsHolder">
+          <form>
+            <input type="text" id="DateInput" placeholder="Date" class="MonthInput">
+            <input type="text" id="MonthInput" placeholder="Month" class="MonthInput">
+            <input type="text" id="YearInput" placeholder="Year" class="MonthInput">
+            <input type="checkbox" id="CheckBoxForAmountPurchased" onclick="DisplayAmountsPurchasedInput()">
+            <input type="text" id="AmountPurchasedInput" class="AmountPurchased" placeholder="AmountPurchased">
+            <input type="text" id="UnitsGainedInput" placeholder="UnitsGained" class="MonthInput">
+            <input type="text" id="TotalUnitsInput" placeholder="TotalUnits" class="MonthInput">
+            <input type="submit" id="SubmitInfoToMonth" class="SubmitInfoToMonth" onclick="SubmitInfoToMonthArr()">
+          </form>
+        </div>
+      </div>
     </div>
 
 

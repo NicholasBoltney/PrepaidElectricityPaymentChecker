@@ -49,6 +49,8 @@ const UnitsGainedInput = document.getElementById("UnitsGainedInput");
 let TotalSpentText = document.getElementById("TotalSpentText");
 let UnitsReceivedText = document.getElementById("UnitsReceivedText");
 
+const HomeUI = document.getElementById("HomeUIHolder");
+
 function DisplayAmountsPurchasedInput()
 {
   if(CheckBoxForAmountPurchased.checked == true)
@@ -80,12 +82,12 @@ function SubmitInfoToMonthArr()
     };
     Oct2023.push(monthInput);
     console.log(Oct2023);
-    MonthModal.style.display = "none";
+    // MonthModal.style.display = "none";
   }
-
-
-
   event.preventDefault();
+
+  console.log("hey");
+
 }
 
 function SelectedMonthTotalPay(id)
@@ -121,4 +123,26 @@ function SelectedMonthTotalPay(id)
     UnitsReceivedText.innerHTML = unitsGained;
   }
   
+}
+
+function ShowDates(id)
+{
+  var showList = document.getElementById(listOfDates);
+
+  if(id === "Oct2023")
+  {
+    var newList = document.createElement("ul");
+    var newListItem;
+
+    for(let i= 0; i < Oct2023.length; i++)
+    {
+      console.log(Oct2023[i]["date"]);
+      newListItem = document.createElement('li');
+      newListItem.textContent = Oct2023[i]["date"];
+      newList.appendChild(newListItem);
+      HomeUI.appendChild(newList);
+      console.log(newList);
+    }
+  }
+
 }
