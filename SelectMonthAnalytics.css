@@ -9,6 +9,8 @@ body{
 .offcanvas-content{
   display: flex;
   justify-content: space-evenly;
+  background-color: #0077b6;
+
 }
 
 .offcanvas-header{
@@ -25,6 +27,8 @@ body{
 .offcanvas-body{
   background-color: #0077b6;
   width: 250px;
+  display: grid;
+  align-items: center;
 }
 
 .offcanvas-main-body{
@@ -65,7 +69,7 @@ body{
 }
 
 #MonthsAnalyticsHolder{
-  /* background-color: #caf0f8; */
+  background-color: #caf0f8;
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -89,16 +93,18 @@ body{
   color: #caf0f8;
 }
 
+#MonthRecap{
+}
+
 .AnalyticsHeading{
   font-weight: 500;
   color: #0077b6;
   font-size: 30px;
   position: relative;
+  left: 0px;
   top: 10px;
   
 }
-
-
 
 #TotalSpentLabel, #TotalSpentText, #UnitsReceivedLabel, #UnitsReceivedText{
   display: inline;
@@ -106,12 +112,84 @@ body{
   color: #0077b6;
 }
 
-
-
-
-
-
 .CloseSelectMonthAnalyticsModalBtn{
   background-color: #0077b6;
 }
+
+@media only screen and (max-width: 750px)
+{
+  #offcanvasExample{
+    width: 100%;
+  }
+  .offcanvas-content{
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+    background-color: #0077b6;
+  }
+  
+  .offcanvas-header{
+    /* height: 40px; */
+    width: 150px;
+  }
+  
+  .offcanvas-title{
+    color: #90e0ef;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 700;
+
+  }
+  
+  
+  .offcanvas-body{
+    background-color: #0077b6;
+    width: 150px;
+    height: 100%;
+  }
+  
+  .offcanvas-main-body{
+    height: 100%;
+    width: 400px;
+    background-color: #90e0ef;
+  }
+  .btn-close
+  {
+    background-color: #90e0ef;
+  } 
+
+  #MonthsAnalyticsHolder{
+    background-color: #caf0f8;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 150px;
+    right: 0px;
+    
+  }
+
+  .MonthAnalyticsBtn{
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    color: #90e0ef;
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+
+  .AnalyticsHeading{
+    font-weight: 500;
+    color: #0077b6;
+    font-size: 25px;
+    position: relative;
+    left: 0px;
+    top: 10px;
+  }
+  #TotalSpentLabel, #TotalSpentText, #UnitsReceivedLabel, #UnitsReceivedText{
+    display: inline;
+    font-weight: 500;
+    color: #0077b6;
+  }
+} 
 

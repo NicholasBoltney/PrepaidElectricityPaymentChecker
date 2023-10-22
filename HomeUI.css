@@ -4,6 +4,8 @@
   z-index: 11;
   top: 50px;
   font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+
 }
 
 #TitleText{
@@ -21,7 +23,6 @@
   justify-content: center;
   align-items: center;
   z-index: 10;
-
 }
 
 .HomeUI{
@@ -53,11 +54,11 @@
 }
 
 #ShowSelectMonthForAnalyticsModalBtn{
-  border-radius: 10px 10px 0px 0px;
+  border-radius: 7px;
 }
 
 #AddNewDateBtn{
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 7px;
 }
 
 #SVGHolder{
@@ -66,6 +67,7 @@
   width: 100%; */
   /* position: absolute; */
   pointer-events: none;
+  z-index: -1;
 }
 
 .MoneySVG{
@@ -76,4 +78,42 @@
   position: absolute;
   right: -0px;
   bottom: 0px;
+}
+
+@media only screen and (max-width: 750px)
+{
+  #TitleText{
+    font-size: 30px;
+    color: #0077b6;
+    font-weight: 700;
+  }
+  #HomeUIHolder{
+    background-color: #caf0f8;
+    position: absolute;
+    width: 100%0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  .HomeUI{
+    height: 150px;
+    width: 250px;
+    background-color: #90e0ef;
+    display: grid;
+    row-gap: 30px;
+    align-content: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 10px 10px #0077b6;
+  }
+  #SVGHolder{
+    /* background-color: red; */
+    /* height: 598px;
+    width: 100%; */
+    /* position: absolute; */
+    pointer-events: none;
+    z-index: -1;
+  }
 }
