@@ -5,26 +5,22 @@ body{
 
 #offcanvasExample{
   width: 100%;
-}
-.offcanvas-content{
   display: flex;
   justify-content: space-evenly;
   background-color: #0077b6;
-
 }
 
-.offcanvas-header{
+#leftHeader{
   background-color: #0077b6;
   /* height: 40px; */
   width: 250px;
 }
 
-.offcanvas-title{
+#offcanvasExampleLabel{
   color: #90e0ef;
 }
 
-
-.offcanvas-body{
+#leftBody{
   background-color: #0077b6;
   width: 250px;
   display: grid;
@@ -37,7 +33,7 @@ body{
   background-color: #90e0ef;
 }
 
-.btn-close
+#leftBtnClose
 {
   background-color: #90e0ef;
 } 
@@ -93,9 +89,6 @@ body{
   color: #caf0f8;
 }
 
-#MonthRecap{
-}
-
 .AnalyticsHeading{
   font-weight: 500;
   color: #0077b6;
@@ -116,7 +109,7 @@ body{
   background-color: #0077b6;
 }
 
-@media only screen and (max-width: 750px)
+@media only screen and (max-width: 426px)
 {
   #offcanvasExample{
     width: 100%;
@@ -146,6 +139,7 @@ body{
     background-color: #0077b6;
     width: 150px;
     height: 100%;
+  
   }
   
   .offcanvas-main-body{

@@ -12,15 +12,17 @@
   </head>
   <body>
     <div id="Title">
-      <h1 id="TitleText">Prepaid Electricity Checker</h1>
+      <h1 id="TitleText">Ready to check your monthly payments?</h1>
       <!-- <p id="TitleText">Thea baby is beautiful</p> -->
     </div>
     
     <div id="HomeUIHolder">
       <div class="HomeUI">
-        <button id="AddNewDateBtn" class="HomeUIBtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add new date</button>
+        <button id="AddNewDateBtn" class="HomeUIBtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" onclick="ShowMonthsContainer">Add new date</button>
         <button id="ShowSelectMonthForAnalyticsModalBtn" class="HomeUIBtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">View monthly analytics</button>
-        <button id="Oct2023" onclick="ShowDates(id)">ShowDates</button>
+        <!-- <button id="Oct2023" onclick="ShowDates(id)">ShowDates</button> -->
+        <button id="DeleteStorage"onclick="DeleteStorage()" >Delete Storage</button>
+
 
 
         <div>
@@ -39,7 +41,7 @@
     </div>
     
 
-
+<!--Monthly analytics-->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
       <div class="offcanvas-content">
         <div>
@@ -88,7 +90,7 @@
         </div>
       </div>
     </div>
-
+<!--Add dates to month-->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasRightLabel">Add Day</h5>
@@ -104,7 +106,7 @@
             <input type="text" id="AmountPurchasedInput" class="AmountPurchased" placeholder="AmountPurchased">
             <input type="text" id="UnitsGainedInput" placeholder="UnitsGained" class="MonthInput">
             <input type="text" id="TotalUnitsInput" placeholder="TotalUnits" class="MonthInput">
-            <input type="submit" id="SubmitInfoToMonth" class="SubmitInfoToMonth" onclick="SubmitInfoToMonthArr()">
+            <input type="submit" id="SubmitInfoToMonth" class="SubmitInfoToMonth" onclick="SubmitInfoToMonthArr(), CloseMonthModal()">
           </form>
         </div>
       </div>

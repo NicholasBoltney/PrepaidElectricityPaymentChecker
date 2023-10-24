@@ -1,10 +1,4 @@
-let Oct2023 = [{
-  date: 1,
-  month: "October",
-  year: 2023,
-  amountPurchased: 20,
-  unitsReceived: 10
-}];
+let Oct2023 = [];
 let Nov2023 = [{
   date: 1,
   month: "November",
@@ -33,12 +27,21 @@ let Oct2024 = [];
 let Nov2024 = [];
 let Dec2024 = [];
 
+let monthsContainer = [
+  Oct2023, Nov2023, Dec2023, Jan2024
+];
+
+// let monthsHolder = localStorage.getItem('monthsHolder') ? JSON.parse(localStorage.getItem('monthsHolder')) : [];
+localStorage.getItem('monthsContainer') ? JSON.parse(localStorage.getItem('monthsContainer')) : [];
+localStorage.getItem('Oct2023') ? JSON.parse(localStorage.getItem('Oct2023')) : [];
+
+
 
 
 
 let currentSelectedMonth = "";
 
-let MonthModal = document.getElementById("MonthModalView");
+let MonthModal = document.getElementById("offcanvasRight");
 const DateInput = document.getElementById("DateInput");
 const MonthInput = document.getElementById("MonthInput");
 const YearInput = document.getElementById("YearInput");
@@ -73,21 +76,42 @@ function SubmitInfoToMonthArr()
     {
       AmountPurchasedInput.value = 0;
     }
-    let monthInput = {
-      date: DateInput.value,
-      month: MonthInput.value,
-      year: YearInput.value,
-      amountPurchased: parseInt(AmountPurchasedInput.value),
-      unitsReceived: parseInt(UnitsGainedInput.value)
-    };
-    Oct2023.push(monthInput);
-    console.log(Oct2023);
-    // MonthModal.style.display = "none";
+    if(parseInt(DateInput.value) <= 31 && parseInt(DateInput.value) > 0 && DateInput.value.match(/^\d+$/))
+    {
+      console.log("checking...");
+      if(monthsContainer[0].length <= 0)
+      {
+        let monthInput = {
+          date: parseInt(DateInput.value),
+          month: MonthInput.value,
+          year: YearInput.value,
+          amountPurchased: parseInt(AmountPurchasedInput.value),
+          unitsReceived: parseInt(UnitsGainedInput.value)
+        };
+        // Oct2023.push(monthInput);
+        DateInput.value = "";
+        MonthInput.value = "";
+        YearInput.value = "";
+        monthsContainer[0].push(monthInput);
+        // localStorage.setItem('monthsHolder', JSON.stringify(monthsHolder));
+        localStorage.setItem('monthsContainer', JSON.stringify(monthsContainer));
+
+        event.preventDefault();
+        return;
+      }
+    }
+    else
+    {
+      console.log("not a number");
+    }
   }
+
   event.preventDefault();
+}
 
-  console.log("hey");
-
+function ShowMonthsContainer()
+{
+  console.log(monthsContainer);
 }
 
 function SelectedMonthTotalPay(id)
@@ -99,14 +123,11 @@ function SelectedMonthTotalPay(id)
   
   if(id === "Oct2023")
   {
-    for(let i = 0; i < Oct2023.length; i++)
+    for(let i = 0; i < monthsContainer[0].length; i++)
     {
-      monthsTotal += Oct2023[i]["amountPurchased"];
-      unitsGained += Oct2023[i]["unitsReceived"];
+      monthsTotal += monthsContainer[0][i]["amountPurchased"];
+      unitsGained += monthsContainer[0][i]["unitsReceived"];
     }
-    console.log(`${monthsTotal} spent in October`);
-    console.log(`${unitsGained} units gained in October`);
-    console.log(TotalSpentText.innerHTML);
     TotalSpentText.innerHTML = monthsTotal;
     UnitsReceivedText.innerHTML = unitsGained;
   }
@@ -122,7 +143,6 @@ function SelectedMonthTotalPay(id)
     TotalSpentText.innerHTML = monthsTotal;
     UnitsReceivedText.innerHTML = unitsGained;
   }
-  
 }
 
 function ShowDates(id)
@@ -145,4 +165,16 @@ function ShowDates(id)
     }
   }
 
+}
+
+function DeleteStorage()
+{
+  // localStorage.removeItem("monthsHolder"); 
+  localStorage.removeItem("monthsContainer");
+}
+
+function CloseMonthModal()
+{
+  MonthModal.style.left = "-400px";
+  MonthModal.style.transition = "1.5s";
 }
