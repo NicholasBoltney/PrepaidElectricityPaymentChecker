@@ -95,6 +95,29 @@ function SubmitInfoToMonthArr()
         monthsContainer[0].push(monthInput);
         // localStorage.setItem('monthsHolder', JSON.stringify(monthsHolder));
         localStorage.setItem('monthsContainer', JSON.stringify(monthsContainer));
+        monthsContainer = localStorage.getItem('monthsContainer') ? JSON.parse(localStorage.getItem('monthsContainer')) : [];
+        console.log(monthsContainer[0]);
+
+        event.preventDefault();
+        return;
+      }
+      else
+      {
+        let monthInput = {
+          date: parseInt(DateInput.value),
+          month: MonthInput.value,
+          year: YearInput.value,
+          amountPurchased: parseInt(AmountPurchasedInput.value),
+          unitsReceived: parseInt(UnitsGainedInput.value)
+        };
+        DateInput.value = "";
+        MonthInput.value = "";
+        YearInput.value = "";
+        monthsContainer[0].push(monthInput);
+        // localStorage.setItem('monthsHolder', JSON.stringify(monthsHolder));
+        localStorage.setItem('monthsContainer', JSON.stringify(monthsContainer));
+        monthsContainer = localStorage.getItem('monthsContainer') ? JSON.parse(localStorage.getItem('monthsContainer')) : [];
+        console.log(monthsContainer[0]);
 
         event.preventDefault();
         return;
@@ -111,7 +134,7 @@ function SubmitInfoToMonthArr()
 
 function ShowMonthsContainer()
 {
-  console.log(monthsContainer);
+
 }
 
 function SelectedMonthTotalPay(id)
@@ -123,6 +146,8 @@ function SelectedMonthTotalPay(id)
   
   if(id === "Oct2023")
   {
+    monthsContainer = localStorage.getItem('monthsContainer') ? JSON.parse(localStorage.getItem('monthsContainer')) : [];
+    console.log(`monthsContainer October lenght is ${monthsContainer[0].length}`);
     for(let i = 0; i < monthsContainer[0].length; i++)
     {
       monthsTotal += monthsContainer[0][i]["amountPurchased"];
@@ -175,6 +200,4 @@ function DeleteStorage()
 
 function CloseMonthModal()
 {
-  MonthModal.style.left = "-400px";
-  MonthModal.style.transition = "1.5s";
 }
